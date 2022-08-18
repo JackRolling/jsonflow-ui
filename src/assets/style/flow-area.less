@@ -1,0 +1,99 @@
+@active-color: #409EFF;
+
+.btn-wrapper-simple {
+  height: 24px !important;
+  line-height: 24px !important;
+}
+
+.vue-contextmenu-listWrapper {
+  padding-left: 1px !important;
+}
+
+.child-ul-wrapper {
+  padding-left: 1px !important;
+}
+
+.flow-container {
+  width: 3000px;
+  height: 3000px;
+  position: relative;
+  transition: transform 0.5s ease 0s, transform-origin 0.5s ease 0s;
+
+  &.grid {
+    background: url("~@/assets/images/grid-bg.jpg") repeat left top;
+    background-size: 60px 60px;
+  }
+
+  &.canScale {
+    cursor: url(~@/assets/images/search.png), default;
+  }
+
+  &.canDrag {
+    cursor: grab;
+  }
+
+  &.canMultiple {
+    cursor: url(~@/assets/images/multip-pointer.png), default;
+  }
+}
+
+.rectangle-multiple {
+  position: absolute;
+  border: 1px dashed #31676f;
+}
+
+.flow-container-active {
+  background-color: #e4e4e4;
+  cursor: crosshair;
+}
+
+.auxiliary-line-x {
+  position: absolute;
+  border: 0.5px solid @active-color;
+  width: 100%;
+  z-index: 9999;
+}
+
+.auxiliary-line-y {
+  position: absolute;
+  border: 0.5px solid @active-color;
+  height: 100%;
+  z-index: 9999;
+}
+
+.link-active {
+  outline: 2px dashed @active-color;
+}
+
+.container-scale {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  > span {
+    display: inline-block;
+    width: 40px;
+    text-align: center;
+    font-size: 14px;
+    color: rgba(0, 0, 0, .65);
+  }
+}
+
+/*自适应底部*/
+.mouse-position {
+  position: fixed;
+  bottom: 0;
+  right: 10px;
+}
+
+.common-remarks {
+  width: 100px;
+  height: 150px;
+  position: absolute;
+  background-color: #ffffaa;
+}
+
+/*缩放按钮*/
+.el-button--small.is-circle {
+  padding: 5px 5px!important;
+}

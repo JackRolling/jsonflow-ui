@@ -1,0 +1,108 @@
+@primary-color: #0960bd;
+
+.container {
+  height: 100%;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.select-area {
+  background-color: #001529;
+  position: relative;
+  z-index: 1001;
+  box-shadow: 3px 0 10px #999;
+  width: 54px!important;
+  .tab {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 12px;
+    height: 26px;
+    line-height: 24px;
+    color: #fff;
+    margin-top: 7px;
+  }
+  /*左侧菜单栏*/
+  .el-row {
+    padding-bottom: 10px!important;
+  }
+}
+
+.header-option {
+  background: #fff;
+  height: 46px!important;
+  line-height: 36px;
+  padding: 0 10px!important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 3px 5px #ddd;
+  position: relative;
+  z-index: 1000;
+  &__tools {
+    span {
+      margin-right: 6px;
+    }
+  }
+}
+
+.header-option-button {
+  border: 0!important;
+  padding: 8px 8px!important;
+}
+
+.content {
+  background: #fafafa;
+  height: 100%;
+  border: 1px dashed rgba(170, 170, 170, 0.7);
+  padding: 0;
+}
+
+.tag {
+  margin: 6px;
+}
+
+.node-item {
+  height: 32px;
+  width: 32px;
+  color: #fff;
+  border-radius: 5px;
+  line-height: 32px;
+  text-align: left;
+  cursor: move;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    color: @primary-color;
+    outline: 1px dashed @primary-color;
+  }
+}
+
+.link-label {
+  background-color: white;
+  padding: 1px;
+  border: 1px solid #346789;
+  border-radius: 5px;
+  opacity: 0.8;
+  z-index: 3;
+}
+
+/*拖拽/连线按钮*/
+.el-button--small, .el-button--small.is-round {
+  padding: 8px 8px!important;
+  border-radius: 16px!important;
+}
+
+/*抽屉内容靠上*/
+.el-drawer__header{
+  margin-bottom: 0!important;
+}
+
+/*画布上移*/
+.el-card__body, .el-main{
+  padding: 0!important;
+}

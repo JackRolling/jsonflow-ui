@@ -29,7 +29,7 @@
           <el-input v-model="flowData.attrs.flowName"/>
         </el-form-item>
         <el-form-item label="流程KEY">
-          <el-input v-model="flowData.attrs.flowKey"/>
+          <el-input v-model="flowData.attrs.flowKey" placeholder="一般为实体类名称"/>
         </el-form-item>
         <el-form-item label="流程备注">
           <el-input v-model="flowData.attrs.remark"/>

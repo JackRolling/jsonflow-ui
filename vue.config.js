@@ -1,4 +1,4 @@
-const url = 'http://pigx-gateway:9999'
+const url = 'http://jsonflow-gateway:9999'
 const path = require("path");
 
 module.exports = {

@@ -758,7 +758,7 @@
       },
       // 使用文档
       usingDoc() {
-        window.open("https://gitee.com/jackrolling/json-flow");
+        window.open("https://jackrolling.github.io/#/");
       },
       // 退出流程设计
       exitFlow() {

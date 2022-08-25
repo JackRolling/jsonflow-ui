@@ -1,5 +1,10 @@
-#### JsonFlow在线演示
+![08](public/favicon.ico)
+
+[![star](https://gitee.com/jackrolling/json-flow-ui/badge/star.svg?theme=dark)](https://gitee.com/jackrolling/json-flow-ui/stargazers) [![fork](https://gitee.com/jackrolling/json-flow-ui/badge/fork.svg?theme=dark)](https://gitee.com/jackrolling/json-flow-ui/members) <img src="https://img.shields.io/badge/release-v1.0.0-brightgreen.svg"> <img src="https://shields.io/badge/license-APACHE2.0-blue">
+
+### JsonFlow在线演示
 [点击预览](https://jackrolling.github.io/#/)
+[Gitee最新](https://gitee.com/jackrolling/json-flow-ui)
 
 ### 如果觉得不错，给作者一个⭐️小星星⭐️Star⭐️吧
 #### 绝对简单易用且适合较复杂场景的中国式审批的工作流（工作流引擎+前端工作流管理界面，请加群咨询）
@@ -80,6 +85,81 @@
   ![08](public/flow/08.png)
 - 工作流界面十余个，更多功能期待你体验...
 
+#### 数据结构
+```json
+{
+  "nodeList": [
+    {
+      "type": "start",
+      "nodeName": "开始",
+      "icon": null,
+      "attrs": {
+        "pcTodoUrl": null,
+        "pcFinishUrl": null
+      },
+      "clazz": {
+        "clazz": null,
+        "methods": null
+      },
+      "defJob": {
+        "jobName": "任务名称",
+        "userId": null,
+        "roleId": null
+      },
+      "jobSize": 1,
+      "id": "1661145449179000002",
+      "height": 50,
+      "x": 210,
+      "width": 50,
+      "y": 205
+    },
+    {
+      "type": "serial",
+      "nodeName": "串行节点",
+      "icon": null,
+      "attrs": {
+        "pcTodoUrl": null,
+        "pcFinishUrl": null
+      },
+      "clazz": {
+        "clazz": null,
+        "methods": null,
+      },
+      "defJob": {
+        "jobName": "任务名称",
+        "userId": null,
+        "roleId": null
+      },
+      "jobSize": 1,
+      "status": null,
+      "id": "1661145452800000003",
+      "height": 50,
+      "x": 315,
+      "width": 120,
+      "y": 235
+    }
+  ],
+  "linkList": [
+    {
+      "type": "link",
+      "label": "",
+      "sourceId": "1661145449179000002",
+      "targetId": "1661145452800000003",
+      "attrs": {
+        "varKey": null,
+        "varVal": null
+      },
+      "id": "1661145456855000004",
+      "icon": null
+    }
+  ],
+  "attrs": {
+    "id": "1661145437059000001"
+  },
+  "status": "0"
+}
+```
+
 #### 本地安装
 
 * 下载本项目：npm install
@@ -90,6 +170,7 @@
 
 #### 关于作者&&微信群
 - 欢迎大家进群一起交流 🔥🔥🔥
+- 如果群二维码失效了，可以直接加我微信拉群，感谢
 
 <table>
   <tr>

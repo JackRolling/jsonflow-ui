@@ -111,31 +111,6 @@
       "x": 210,
       "width": 50,
       "y": 205
-    },
-    {
-      "type": "serial",
-      "nodeName": "串行节点",
-      "icon": null,
-      "attrs": {
-        "pcTodoUrl": null,
-        "pcFinishUrl": null
-      },
-      "clazz": {
-        "clazz": null,
-        "methods": null,
-      },
-      "defJob": {
-        "jobName": "任务名称",
-        "userId": null,
-        "roleId": null
-      },
-      "jobSize": 1,
-      "status": null,
-      "id": "1661145452800000003",
-      "height": 50,
-      "x": 315,
-      "width": 120,
-      "y": 235
     }
   ],
   "linkList": [

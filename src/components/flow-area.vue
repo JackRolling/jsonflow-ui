@@ -96,7 +96,7 @@
 
 <script>
   import {flowConfig} from "@/config/flow-config";
-  import {deepClone, utils} from "@/utils/common.js";
+  import {deepClone, utils} from "@/utils/common";
   import FlowNode from "./flow-node";
   import { CommonNodeType, HighNodeType, LaneNodeType, ToolsType } from '@/config/type';
 

@@ -32,7 +32,8 @@ import {
   Footer,
   InputNumber,
   Message,
-  MessageBox
+  MessageBox,
+  ColorPicker
 } from 'element-ui';
 
 Vue.use(Button)
@@ -65,6 +66,7 @@ Vue.use(Header)
 Vue.use(Main)
 Vue.use(Footer)
 Vue.use(InputNumber)
+Vue.use(ColorPicker)
 
 Vue.prototype.$message = Message
 Vue.prototype.$confirm = MessageBox.confirm

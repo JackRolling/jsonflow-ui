@@ -150,6 +150,7 @@
         </el-main>
       </el-container>
       <el-drawer
+        class="flow-drawer"
         title="属性配置(注:可双击节点或连线设置)"
         direction="rtl"
         append-to-body
@@ -195,21 +196,19 @@
 
 <script>
   import {jsPlumb} from "jsplumb";
-  import {commonNodes, highNodes, laneNodes, tools} from "@/config/node-config.js";
-  import {flowConfig} from "@/config/flow-config.js";
+  import {commonNodes, highNodes, laneNodes, tools} from "@/config/node-config";
+  import {flowConfig} from "@/config/flow-config";
   import html2canvas from "html2canvas";
   import canvg from "canvg";
-  import {deepClone, utils} from "@/utils/common.js";
+  import {deepClone, utils, getBrowserType} from "@/utils/common";
   import FlowArea from "../components/flow-area";
   import FlowAttr from "../components/flow-attr";
   import SettingModal from "./setting";
   import ShortcutModal from "./shortcut";
   import JsonModal from "./json-view";
   import NodeMenu from "../components/node-menu";
-  import {getBrowserType} from '@/utils/common'
   import {ToolsType, LaneNodeType, CommonNodeType, HighNodeType} from "@/config/type";
   import * as defFlow from '@/api/jsonflow'
-  import {putObj} from "@/api/jsonflow";
   import {setStore} from "@/utils/store";
 
   export default {
@@ -619,10 +618,12 @@
         // 生成流程图
         this.previewFlow(false)
         let d = JSON.stringify(flowObj);
+        let flowJson = deepClone(flowObj);
+        flowJson.photo = null
 
         setTimeout(() => {
           flowObj.status = flowConfig.flowStatus.SAVE;
-          flowObj.attrs.flowJson = d
+          flowObj.attrs.flowJson = JSON.stringify(flowJson)
           defFlow.addObj(flowObj).then(resp => {
             this.$message.success("发布流程成功,请查看控制台.");
           }).catch(() => {
@@ -758,7 +759,7 @@
       },
       // 使用文档
       usingDoc() {
-        window.open("https://jackrolling.github.io/#/");
+        window.open("https://jackrolling.github.io/");
       },
       // 退出流程设计
       exitFlow() {
@@ -883,10 +884,4 @@
 
 <style lang="less">
   @import "../assets/style/flow-designer.less";
-
-  .node-img {
-    width: 14px;
-    height: 14px;
-    margin-right: 10px;
-  }
 </style>

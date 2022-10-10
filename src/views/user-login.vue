@@ -56,6 +56,7 @@
 <script>
   import {setStore} from '@/utils/store'
   import {encryption, loginByUsername} from "@/api/admin";
+  import {DIC_PROP} from "@/utils/dict-prop";
 
   export default {
     name: "Userlogin",
@@ -92,9 +93,13 @@
         this.passwordType === "" ? (this.passwordType = "password") : (this.passwordType = "");
       },
       handleLogin() {
-        this.LoginByUsername(this.loginForm).then(() => {
+        if (DIC_PROP.isNeedService) {
+          this.LoginByUsername(this.loginForm).then(() => {
+            this.$router.push({path: "/flow-design"});
+          });
+        } else {
           this.$router.push({path: "/flow-design"});
-        });
+        }
       },
       // 根据用户名登录
       LoginByUsername(userInfo) {

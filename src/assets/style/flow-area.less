@@ -20,7 +20,7 @@
   transition: transform 0.5s ease 0s, transform-origin 0.5s ease 0s;
 
   &.grid {
-    background: url("~@/assets/images/grid-bg.jpg") repeat left top;
+    background: url(~@/assets/images/grid-bg.jpg) repeat left top;
     background-size: 60px 60px;
   }
 
@@ -77,6 +77,11 @@
     font-size: 14px;
     color: rgba(0, 0, 0, .65);
   }
+
+  /*缩放按钮*/
+  .el-button--small.is-circle {
+    padding: 5px 5px!important;
+  }
 }
 
 /*自适应底部*/
@@ -91,9 +96,4 @@
   height: 150px;
   position: absolute;
   background-color: #ffffaa;
-}
-
-/*缩放按钮*/
-.el-button--small.is-circle {
-  padding: 5px 5px!important;
 }

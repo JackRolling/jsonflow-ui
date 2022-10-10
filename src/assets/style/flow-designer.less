@@ -46,6 +46,12 @@
       margin-right: 6px;
     }
   }
+
+  /*拖拽/连线按钮*/
+  .el-button--small, .el-button--small.is-round {
+    padding: 8px 8px!important;
+    border-radius: 16px!important;
+  }
 }
 
 .header-option-button {
@@ -57,7 +63,7 @@
   background: #fafafa;
   height: 100%;
   border: 1px dashed rgba(170, 170, 170, 0.7);
-  padding: 0;
+  padding: 0!important;
 }
 
 .tag {
@@ -91,18 +97,9 @@
   z-index: 3;
 }
 
-/*拖拽/连线按钮*/
-.el-button--small, .el-button--small.is-round {
-  padding: 8px 8px!important;
-  border-radius: 16px!important;
-}
-
-/*抽屉内容靠上*/
-.el-drawer__header{
-  margin-bottom: 0!important;
-}
-
-/*画布上移*/
-.el-card__body, .el-main{
-  padding: 0!important;
+.flow-drawer {
+  /*抽屉内容靠上*/
+  .el-drawer__header{
+    margin-bottom: 0!important;
+  }
 }

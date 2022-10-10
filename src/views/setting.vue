@@ -1,6 +1,7 @@
 <template>
   <div>
     <el-drawer
+      class="flow-drawer"
       title="设置"
       direction="rtl"
       append-to-body
@@ -9,7 +10,7 @@
       style="z-index: 1001"
       @close="close">
 
-      <el-form
+      <el-form class="flow-drawer-form"
         :model="settingForm"
         label-position="right">
 
@@ -44,8 +45,7 @@
           </el-select>
         </el-form-item>
         <el-form-item label="颜色">
-          <colorPicker v-model="linkColor"
-                       @change="setLinkColor"/>
+          <el-color-picker v-model="linkColor" @change="setLinkColor"></el-color-picker>
         </el-form-item>
         <el-form-item label="粗细">
           <el-slider
@@ -91,7 +91,7 @@
 </template>
 
 <script>
-  import {flowConfig} from '@/config/flow-config.js'
+  import {flowConfig} from '@/config/flow-config'
 
   export default {
     data() {
@@ -156,19 +156,16 @@
   }
 </script>
 
-<style scoped>
-  :deep(.m-colorPicker .box) {
-    z-index: 10002 !important;
-    width: 220px !important;
-  }
+<style scoped lang="less">
 
+.flow-drawer-form {
   /*属性面板*/
-  :deep(.el-form-item) {
-    margin: 0 40px 10px;
+  .el-form-item {
+    margin: 0 40px 10px!important;
   }
+  /deep/ .el-form-item .el-form-item__content{
+    margin-left: 150px!important;
+  }
+}
 
-  /*设置面板 scoped->>deep*/
-  :deep(.el-form-item__content){
-    margin-left: 150px;
-  }
 </style>

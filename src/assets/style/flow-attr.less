@@ -1,21 +1,24 @@
-/*属性面板*/
-.el-form-item {
-  margin: 0 15px 10px!important;
+.flow-attr {
+  /*属性面板*/
+  .el-form-item {
+    margin: 0 15px 10px!important;
+  }
+
+  /*属性面板在一行*/
+  .el-form--label-top .el-form-item__label{
+    display: inline-block;
+    text-align: left;
+    padding: 0 0 10px!important;
+  }
+
+  /*tab选中样式*/
+  .el-tabs__active-bar {
+    background-color: revert;
+  }
+
+  /*tab头居中*/
+  .el-tabs__header{
+    margin: 8px!important;
+  }
 }
 
-/*属性面板在一行*/
-.el-form--label-top .el-form-item__label{
-  display: inline-block;
-  text-align: left;
-  padding: 0 0 10px!important;
-}
-
-/*tab选中样式*/
-.el-tabs__active-bar {
-  background-color: revert;
-}
-
-/*tab头居中*/
-.el-tabs__header{
-  margin: 8px!important;
-}

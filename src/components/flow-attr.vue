@@ -1,5 +1,5 @@
 <template>
-  <el-tabs size="small"
+  <el-tabs size="small" class="flow-attr"
            v-model="activeKey">
     <el-tab-pane name="flow-attr">
 				<span slot="label">
@@ -29,7 +29,7 @@
           <el-input v-model="flowData.attrs.flowName"/>
         </el-form-item>
         <el-form-item label="流程KEY">
-          <el-input v-model="flowData.attrs.flowKey" placeholder="一般为实体类名称"/>
+          <el-input v-model="flowData.attrs.flowKey" placeholder="一般为工单实体类名称"/>
         </el-form-item>
         <el-form-item label="流程备注">
           <el-input v-model="flowData.attrs.remark"/>
@@ -253,6 +253,16 @@
           <el-form-item label="任务名称">
             <el-input placeholder="请输入任务名称" v-model="currentSelect.defJob.jobName"/>
           </el-form-item>
+          <el-form-item label="办理人员">
+              <el-select v-model="currentSelect.defJob.userId" filterable clearable placeholder="一般设置角色非人员">
+                  <el-option
+                          v-for="item in users"
+                          :key="item.userId"
+                          :label="item.username"
+                          :value="item.userId">
+                  </el-option>
+              </el-select>
+          </el-form-item>
           <el-form-item label="办理人员角色">
             <el-select v-model="currentSelect.defJob.roleId" filterable clearable>
               <el-option
@@ -460,8 +470,6 @@
   import {CommonNodeType, HighNodeType, LaneNodeType} from '@/config/type'
   import {DIC_PROP} from '@/utils/dict-prop'
   import * as defFlow from "@/api/jsonflow";
-  import {listDefFlow} from "@/api/jsonflow";
-  import {flowConfig} from "@/config/flow-config";
 
   export default {
     props: ['plumb', 'flowData', 'select'],
@@ -477,11 +485,22 @@
         tabsOptions: [],
         varKeys: [],
         roles: [],
+        users: [],
         defFlows: [],
         defFlowId: null
       }
     },
     mounted() {
+      if (!DIC_PROP.isNeedService) {
+        this.$message.warning("注: 默认不开启后端服务器，故部分配置数据选项为默认数据");
+        this.defFlows = [{id: 1, flowKey: 'AskLeave'}]
+        this.userKeys = [{userKey: 'create_user'}]
+        this.varKeys = [{varKey: 'isNeedUserAudit'}]
+        this.tabsOptions = [{id: 2, label: '审批过程'},{id: 3, label: '查看流程图'}]
+        this.roles = [{roleId: 1, roleName: '管理员'}]
+        this.users = [{userId: 1, username: 'admin'}]
+        return
+      }
       // 获取流程数据
       defFlow.listDefFlow().then(resp => {
         this.defFlows = resp.data.data
@@ -515,6 +534,12 @@
         this.roles = resp.data.data
       }).catch(() => {
         this.$message.error("获取角色失败");
+      })
+      // 获取人员
+      defFlow.listUser().then(resp => {
+        this.users = resp.data.data
+      }).catch(() => {
+        this.$message.error("获取人员失败");
       })
     },
     methods: {

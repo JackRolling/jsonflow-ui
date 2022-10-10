@@ -24,7 +24,7 @@
 </template>
 
 <script>
-  import {flowConfig} from '@/config/flow-config.js'
+  import {flowConfig} from '@/config/flow-config'
 
   export default {
     data() {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-drawer
+    <el-drawer class="flow-drawer"
       title="查看数据"
       direction="rtl"
       append-to-body
@@ -28,7 +28,7 @@
 
 <script>
   import JsonView from 'vue-json-viewer'
-  import {flowConfig} from '@/config/flow-config.js'
+  import {flowConfig} from '@/config/flow-config'
 
   export default {
     components: {
@@ -53,6 +53,7 @@
       tempSave() {
         let tempObj = Object.assign({}, this.flowData);
         tempObj.status = flowConfig.flowStatus.SAVE;
+        tempObj.attrs.flowJson = null
         this.flowDataJson = JSON.stringify(tempObj);
       },
       // 加载JSON数据

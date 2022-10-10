@@ -50,3 +50,10 @@ export function listRole() {
     method: 'get'
   })
 }
+
+export function listUser() {
+  return request({
+    url: '/admin/user/list',
+    method: 'get'
+  })
+}

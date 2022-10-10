@@ -94,7 +94,7 @@
 
 <script>
   import {Resizable} from 'resizable-dom'
-  import {flowConfig} from '@/config/flow-config.js'
+  import {flowConfig} from '@/config/flow-config'
   import {CommonNodeType, HighNodeType, LaneNodeType, ToolsType} from '@/config/type';
 
   export default {

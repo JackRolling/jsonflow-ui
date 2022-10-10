@@ -3,6 +3,7 @@
  * @author luolin
  */
 export let DIC_PROP = {
+  isNeedService: false,
   YES_OR_NO: [{
     label: '否',
     value: '0'
@@ -17,7 +18,7 @@ export let DIC_PROP = {
     label: '角色',
     value: '1'
   }, {
-    label: '会签',
+    label: '或签',
     value: '2'
   }],
   NODE_DEGREE: [{

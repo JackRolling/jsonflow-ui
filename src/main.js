@@ -7,14 +7,12 @@ import './ele-ui.js'
 
 import router from './router'
 import VueContextMenu from 'vue-contextmenu'
-import vcolorpicker from 'vcolorpicker'
 
 import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.config.productionTip = false
 
 Vue.use(VueContextMenu)
-Vue.use(vcolorpicker)
 
 /* eslint-disable no-new */
 new Vue({

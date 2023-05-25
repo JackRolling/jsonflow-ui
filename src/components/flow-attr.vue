@@ -54,21 +54,21 @@
 					节点属性
 				</span>
       <el-form label-width="130px" v-if="currentSelect.type && currentSelect.type !== CommonNodeType.LINK && currentSelect.type !== HighNodeType.JOB">
-          <el-divider >节点配置</el-divider>
-          <div style="margin: 5px 20px"><span style="color: red;font-size: 14px">注:当前节点没有单独配置【节点任务】时，作为节点默认的任务属性配置</span></div>
-          <el-form-item label="节点类型">
-            <el-tag>{{ currentSelect.type }}</el-tag>
-          </el-form-item>
-          <el-form-item label="节点ID">
-            <el-input v-model="currentSelect.id" disabled/>
-          </el-form-item>
-          <el-form-item label="节点名称">
-            <el-input placeholder="请输入节点名称"
-                      v-if="currentSelect.type === CommonNodeType.START || currentSelect.type === CommonNodeType.END"
-                      disabled
-                      v-model="currentSelect.nodeName"/>
-            <el-input placeholder="请输入节点名称" v-else v-model="currentSelect.nodeName"/>
-          </el-form-item>
+        <el-divider >节点配置</el-divider>
+        <div style="margin: 5px 20px"><span style="color: red;font-size: 14px">注:当前节点没有单独配置【节点任务】时，作为节点默认的任务属性配置</span></div>
+        <el-form-item label="节点类型">
+          <el-tag>{{ currentSelect.type }}</el-tag>
+        </el-form-item>
+        <el-form-item label="节点ID">
+          <el-input v-model="currentSelect.id" disabled/>
+        </el-form-item>
+        <el-form-item label="节点名称">
+          <el-input placeholder="请输入节点名称"
+                    v-if="currentSelect.type === CommonNodeType.START || currentSelect.type === CommonNodeType.END"
+                    disabled
+                    v-model="currentSelect.nodeName"/>
+          <el-input placeholder="请输入节点名称" v-else v-model="currentSelect.nodeName"/>
+        </el-form-item>
 
         <template v-if="currentSelect.type === CommonNodeType.START || currentSelect.type === CommonNodeType.END
         || currentSelect.type === CommonNodeType.SERIAL || currentSelect.type === CommonNodeType.PARALLEL || currentSelect.type === HighNodeType.VIRTUAL">
@@ -250,121 +250,121 @@
 
         <div style="margin: 5px 20px"><span style="color: red;font-size: 14px">注:当前节点单独配置【节点任务】时，则节点上配置的默认任务属性失效</span></div>
 
-          <el-form-item label="任务名称">
-            <el-input placeholder="请输入任务名称" v-model="currentSelect.defJob.jobName"/>
-          </el-form-item>
-          <el-form-item label="办理人员">
-              <el-select v-model="currentSelect.defJob.userId" filterable clearable placeholder="一般设置角色非人员">
-                  <el-option
-                          v-for="item in users"
-                          :key="item.userId"
-                          :label="item.username"
-                          :value="item.userId">
-                  </el-option>
-              </el-select>
-          </el-form-item>
-          <el-form-item label="办理人员角色">
-            <el-select v-model="currentSelect.defJob.roleId" filterable clearable>
-              <el-option
-                v-for="item in roles"
-                :key="item.roleId"
-                :label="item.roleName"
-                :value="item.roleId">
-              </el-option>
-            </el-select>
-          </el-form-item>
-          <el-form-item label="任务类型">
-            <el-select v-model="currentSelect.defJob.jobType">
-              <el-option
-                v-for="item in DIC_PROP.JOB_TYPE"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value">
-              </el-option>
-            </el-select>
-          </el-form-item>
-          <el-form-item label="动态办理人KEY">
-            <el-select v-model="currentSelect.defJob.userKey" filterable clearable>
-              <el-option
-                v-for="item in userKeys"
-                :key="item.userKey"
-                :label="item.userKey"
-                :value="item.userKey">
-              </el-option>
-            </el-select>
-          </el-form-item>
-          <el-form-item label="办理人员类型">
-            <el-select v-model="currentSelect.defJob.dynamicType" clearable>
-              <el-option
-                v-for="item in DIC_PROP.DYNAMIC_TYPE"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value">
-              </el-option>
-            </el-select>
-          </el-form-item>
-          <el-form-item label="默认分配任务KEY">
-            <el-select v-model="currentSelect.defJob.distUserKey" filterable clearable>
-              <el-option
-                v-for="item in userKeys"
-                :key="item.userKey"
-                :label="item.userKey"
-                :value="item.userKey">
-              </el-option>
-            </el-select>
-          </el-form-item>
-          <el-form-item label="分配人员类型">
-            <el-select v-model="currentSelect.defJob.distDynType" clearable>
-              <el-option
-                v-for="item in DIC_PROP.DYNAMIC_TYPE"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value">
-              </el-option>
-            </el-select>
-          </el-form-item>
-          <el-form-item label="多人会签审批都执行监听">
-            <el-switch
-              v-model="currentSelect.defJob.isNowCall"
-              active-value="1"
-              inactive-value="0"
-              inactive-text="否"
-              active-text="是">
-            </el-switch>
-          </el-form-item>
-          <el-form-item label="被分配后立即运行">
-            <el-switch
-              v-model="currentSelect.defJob.isNowRun"
-              active-value="1"
-              inactive-value="0"
-              inactive-text="否"
-              active-text="是">
-            </el-switch>
-          </el-form-item>
-          <el-form-item label="任务时限">
-            <el-input-number v-model="currentSelect.defJob.timeout" placeholder="小于0则不限制"></el-input-number>
-          </el-form-item>
-          <el-form-item label="任务排序">
-            <el-input-number v-model="currentSelect.defJob.sort" :min="1"></el-input-number>
-          </el-form-item>
-          <el-form-item label="被驳回是否可跳过">
-            <el-switch
-              v-model="currentSelect.defJob.isSkip"
-              active-value="1"
-              inactive-value="0"
-              inactive-text="否"
-              active-text="是">
-            </el-switch>
-          </el-form-item>
-          <el-form-item label="是否有效">
-            <el-switch
-              v-model="currentSelect.defJob.isValid"
-              active-value="1"
-              inactive-value="0"
-              inactive-text="否"
-              active-text="是">
-            </el-switch>
-          </el-form-item>
+        <el-form-item label="任务名称">
+          <el-input placeholder="请输入任务名称" v-model="currentSelect.defJob.jobName"/>
+        </el-form-item>
+        <el-form-item label="办理人员">
+          <el-select v-model="currentSelect.defJob.userId" filterable clearable placeholder="一般设置角色非人员">
+            <el-option
+              v-for="item in users"
+              :key="item.userId"
+              :label="item.username"
+              :value="item.userId">
+            </el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="办理人员角色">
+          <el-select v-model="currentSelect.defJob.roleId" filterable clearable>
+            <el-option
+              v-for="item in roles"
+              :key="item.roleId"
+              :label="item.roleName"
+              :value="item.roleId">
+            </el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="任务类型">
+          <el-select v-model="currentSelect.defJob.jobType">
+            <el-option
+              v-for="item in DIC_PROP.JOB_TYPE"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value">
+            </el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="动态办理人KEY">
+          <el-select v-model="currentSelect.defJob.userKey" filterable clearable>
+            <el-option
+              v-for="item in userKeys"
+              :key="item.userKey"
+              :label="item.userKey"
+              :value="item.userKey">
+            </el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="办理人员类型">
+          <el-select v-model="currentSelect.defJob.dynamicType" clearable>
+            <el-option
+              v-for="item in DIC_PROP.DYNAMIC_TYPE"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value">
+            </el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="待分配办理人KEY">
+          <el-select v-model="currentSelect.defJob.distUserKey" filterable clearable>
+            <el-option
+              v-for="item in userKeys"
+              :key="item.userKey"
+              :label="item.userKey"
+              :value="item.userKey">
+            </el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="待分配人员类型">
+          <el-select v-model="currentSelect.defJob.distDynType" clearable>
+            <el-option
+              v-for="item in DIC_PROP.DYNAMIC_TYPE"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value">
+            </el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="审批后是否立即执行监听">
+          <el-switch
+            v-model="currentSelect.defJob.isNowCall"
+            active-value="1"
+            inactive-value="0"
+            inactive-text="否"
+            active-text="是">
+          </el-switch>
+        </el-form-item>
+        <el-form-item label="被分配后立即运行">
+          <el-switch
+            v-model="currentSelect.defJob.isNowRun"
+            active-value="1"
+            inactive-value="0"
+            inactive-text="否"
+            active-text="是">
+          </el-switch>
+        </el-form-item>
+        <el-form-item label="任务时限">
+          <el-input-number v-model="currentSelect.defJob.timeout" placeholder="小于0则不限制"></el-input-number>
+        </el-form-item>
+        <el-form-item label="任务排序">
+          <el-input-number v-model="currentSelect.defJob.sort" :min="1"></el-input-number>
+        </el-form-item>
+        <el-form-item label="被驳回是否可跳过">
+          <el-switch
+            v-model="currentSelect.defJob.isSkip"
+            active-value="1"
+            inactive-value="0"
+            inactive-text="否"
+            active-text="是">
+          </el-switch>
+        </el-form-item>
+        <el-form-item label="是否有效">
+          <el-switch
+            v-model="currentSelect.defJob.isValid"
+            active-value="1"
+            inactive-value="0"
+            inactive-text="否"
+            active-text="是">
+          </el-switch>
+        </el-form-item>
       </el-form>
     </el-tab-pane>
 

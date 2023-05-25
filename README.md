@@ -10,7 +10,7 @@
 
 ### JsonFlow在线演示
 [点击预览](http://47.109.57.40/)（JsonFlow SpringBoot单体版本）
-[点击预览](http://flow.pigx.vip/#/login)（感谢Pigx的支持。注：选择租户：JsonFlow，且只是【工作流管理模块】）
+[点击预览](http://flow.pigx.vip/#/login)（感谢Pigx的支持。注：选择租户：JsonFlow且只是【工作流管理模块】）
 
 ### JsonFlow在线文档（更多后端及牛X功能文档暂未开源）
 [点击预览](https://jackrolling.gitee.io/docsify/#/)

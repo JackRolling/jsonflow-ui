@@ -25,7 +25,7 @@ export let flowConfig = {
     LOADING: '3'
   },
   gridConfig: {
-    showGrid: true,
+    showGrid: false,
     showGridText: "隐藏网格",
     showGridIcon: "el-icon-aim"
   },

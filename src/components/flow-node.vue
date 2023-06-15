@@ -15,7 +15,12 @@
        @click.stop="selectNode"
        @dblclick.stop="dbClickNode"
        @contextmenu.stop="showNodeContextMenu">
-    {{ node.nodeName }}
+    <div v-if="node.type === CommonNodeType.START">
+      <img :src="setSvgIcon(node)" class="start-icon" alt="start">
+      <span style="position: absolute; left: 31px;">{{ node.nodeName }}</span>
+      <img :src="setSvgIcon(node, true)" class="arrow-icon" alt="arrow">
+    </div>
+    <span v-else-if="node.type === CommonNodeType.END">{{ node.nodeName }}</span>
   </div>
 
   <div v-else-if="node.type === CommonNodeType.SERIAL || node.type === CommonNodeType.PARALLEL || node.type === HighNodeType.VIRTUAL
@@ -31,8 +36,8 @@
        @click.stop="selectNode"
        @dblclick.stop="dbClickNode"
        @contextmenu.stop="showNodeContextMenu">
-    <el-icon :name="setIcon(node)" class="node-icon"/>
-    {{ node.nodeName }} {{node.jobSize ? '(' + node.jobSize + ')' : ''}}
+    <img :src="setSvgIcon(node)" class="node-icon" alt="node">
+    {{ node.nodeName }} {{ node.jobSize ? '(' + node.jobSize + ')' : '' }}
   </div>
 
   <div v-else-if="node.type === HighNodeType.JOB"
@@ -47,7 +52,7 @@
        @click.stop="selectNode"
        @dblclick.stop="dbClickNode"
        @contextmenu.stop="showNodeContextMenu">
-    <el-icon :name="setIcon(node)" class="node-icon"/>
+    <img :src="setSvgIcon(node)" class="node-icon" alt="job">
     {{ node.nodeName }}
   </div>
 
@@ -96,9 +101,10 @@
   import {Resizable} from 'resizable-dom'
   import {flowConfig} from '@/config/flow-config'
   import {CommonNodeType, HighNodeType, LaneNodeType, ToolsType} from '@/config/type';
+  import {nodeJobSvgIcons} from "@/assets/svges";
 
   export default {
-    props: ['select', 'selectGroup', 'node', 'plumb', 'currentTool' ,'rectangleMultiple'],
+    props: ['select', 'selectGroup', 'node', 'plumb', 'currentTool', 'rectangleMultiple'],
     mounted() {
       this.registerNode()
     },
@@ -112,9 +118,38 @@
       }
     },
     methods: {
-      // 设置ICON
+      // 设置SVG ICON
+      setSvgIcon(node, isArrow) {
+        if (isArrow) {
+          return nodeJobSvgIcons.arrow
+        }
+        switch (node.type) {
+          case CommonNodeType.START:
+            return nodeJobSvgIcons.start
+          case CommonNodeType.SERIAL:
+            return this.getSvgByStatus(node)
+          case CommonNodeType.PARALLEL:
+            return this.getSvgByStatus(node)
+          case HighNodeType.VIRTUAL:
+            return this.getSvgByStatus(node)
+          case HighNodeType.JOB:
+            return this.getSvgByStatus(node)
+          case HighNodeType.CHILD_FLOW:
+            return 'set-up'
+          default:
+            return 'tool'
+        }
+      },
+      getSvgByStatus(node) {
+        if (node.status === '0') return 'loading'
+        if (node.status === '1') return 'circle-check'
+        if (HighNodeType.JOB === node.type) return nodeJobSvgIcons.job
+        return nodeJobSvgIcons.node
+      },
       setIcon(node) {
         switch (node.type) {
+          case CommonNodeType.START:
+            return 'user'
           case CommonNodeType.SERIAL:
             return this.getIconByStatus(node)
           case CommonNodeType.PARALLEL:
@@ -148,7 +183,7 @@
       },
       // 初始节点拖拽
       registerNode() {
-        this.plumb.draggable(this.node.id, {
+        window._plumb.draggable(this.node.id, {
           containment: 'parent',
           handle: (e, el) => {
             // 判断节点类型
@@ -195,7 +230,7 @@
         this.currentSelect = this.node
         this.currentSelectGroup = []
       },
-      dbClickNode(){
+      dbClickNode() {
         this.$emit("dbClickNode")
       },
       // 点击节点

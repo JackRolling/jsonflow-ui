@@ -289,6 +289,7 @@
       // 实例化JsPlumb
       initJsPlumb() {
         this.plumb = jsPlumb.getInstance(flowConfig.jsPlumbInsConfig);
+        window._plumb = this.plumb;
 
         this.plumb.bind("beforeDrop", info => {
           let sourceId = info.sourceId;
@@ -759,7 +760,7 @@
       },
       // 使用文档
       usingDoc() {
-        window.open("https://jackrolling.github.io/");
+        window.open("https://jackrolling.gitee.io/docsify/#/");
       },
       // 退出流程设计
       exitFlow() {

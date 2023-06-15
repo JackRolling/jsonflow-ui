@@ -5,11 +5,11 @@
 .common-circle-node {
   position: absolute;
   height: 30px;
-  width: 30px;
+  width: 80px;
   line-height: 30px;
   text-align: center;
   border: 1px solid #777;
-  border-radius: 50%;
+  border-radius: 30px;
   background-color: @common-node-bg;
   white-space: nowrap;
   font-size: 10px;
@@ -25,24 +25,24 @@
   }
 
   &.isStart {
-    background-color: #2fce2f;
+    background-color: #2c2c2c;
     color: #fff;
   }
 
   &.isEnd {
-    background-color: #f35753;
+    background-color: #6e6e6e;
     color: #fff;
   }
 }
 
 .common-rectangle-node {
   position: absolute;
-  height: 30px;
-  width: 100px;
-  line-height: 30px;
+  height: 34px;
+  width: 140px;
+  line-height: 34px;
   text-align: center;
-  border: 1px solid #777;
-  border-radius: 5px;
+  border: 1px solid #409EFF;
+  border-radius: 20px;
   background-color: @common-node-bg;
   white-space: nowrap;
   font-size: 10px;
@@ -60,12 +60,12 @@
 
 .common-job-node {
   position: absolute;
-  height: 40px;
-  width: 70px;
-  line-height: 40px;
+  height: 34px;
+  width: 120px;
+  line-height: 34px;
   text-align: center;
-  border: 1px solid #777;
-  border-radius: 5px;
+  border: 1px solid #409EFF;
+  border-radius: 20px;
   background-color: @common-node-bg;
   white-space: nowrap;
   font-size: 10px;
@@ -148,6 +148,20 @@
 
 .node-icon {
   position: absolute;
-  top: 3px;
-  left: 3px;
+  height: 18px;
+  top: 8px;
+  left: 8px;
+}
+
+.start-icon {
+  position: absolute;
+  height: 15px;
+  top: 7px;
+  left: 8px;
+}
+
+.arrow-icon {
+  position: absolute;
+  top: 9px;
+  left: 60px;
 }

@@ -760,7 +760,7 @@
       },
       // 使用文档
       usingDoc() {
-        window.open("https://jackrolling.gitee.io/docsify/#/");
+        window.open("http://1.15.77.119:9000/jsonflow-doc/");
       },
       // 退出流程设计
       exitFlow() {

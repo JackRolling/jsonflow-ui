@@ -14,7 +14,7 @@
 [点击预览](http://47.109.57.40/)（JsonFlow SpringBoot单体版本） 【备注：微服务版本整合PIGX】
 
 ### JsonFlow在线文档（VIP文档暂未开源-请联系作者）
-[点击预览](http://1.15.77.119:9000/jsonflow-doc/)
+[点击预览](http://1.15.77.119:9000/)
 
 
 #### 🎉🎉🎉绝对简单但强大易用易扩展且适应复杂场景的中国式审批的工作流引擎系统
@@ -25,8 +25,8 @@
 - 基于本系统开发的工作流系统已在生产上平稳运行良久，生产已验证
 
 - 商业授权与协议范围说明 - PIGX官方授权声明地址[点击预览](https://pig4cloud.com/data/doc/info/auth-intro.html)
-- 请点击查看商业版Pro强大功能详情[点击预览](http://1.15.77.119:9000/jsonflow-doc/home/function/)
-- 请点击查看对比传统BPM详情[点击预览](http://1.15.77.119:9000/jsonflow-doc/home/compare/)
+- 请点击查看商业版Pro强大功能详情[点击预览](http://1.15.77.119:9000/home/function/)
+- 请点击查看对比传统BPM详情[点击预览](http://1.15.77.119:9000/home/compare/)
 
 #### 系统介绍
 

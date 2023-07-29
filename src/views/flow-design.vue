@@ -760,7 +760,7 @@
       },
       // 使用文档
       usingDoc() {
-        window.open("http://1.15.77.119:9000/jsonflow-doc/");
+        window.open("http://1.15.77.119:9000/");
       },
       // 退出流程设计
       exitFlow() {

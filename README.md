@@ -8,6 +8,8 @@
 |:-------------------------------------------------:|
 | 🔥大家可扫码加入交流群，群已超200+人被限制了。可以加我微信 ll766488893 拉你入群 |
 
+### 开源仅一个前期的流程设计器（[借鉴vue-flow-design-plus，将Ant Design改为ElementUI并重构](https://gitee.com/zhangyeping/vue-flow-design-plus)），与商业版本（完全自研）技术栈不同！
+
 ### JsonFlow在线演示（请联系作者微信ll766488893）
 [点击预览](http://47.109.57.40/)（JsonFlow SpringBoot单体版本） 【备注：微服务版本整合PIGX】
 
